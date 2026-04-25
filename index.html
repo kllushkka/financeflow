@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ultra Premium Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="authScreen" class="auth-screen">
+
+<div class="auth-box">
+
+<h2 class="logo">FinanceFlow</h2>
+
+<div class="tabs">
+<button onclick="showLogin()">Вход</button>
+<button onclick="showRegister()">Регистрация</button>
+</div>
+
+<div id="loginBlock">
+
+<input id="loginUser" type="email" placeholder="Email">
+<div class="password-wrapper">
+  <input id="loginPass" type="password" placeholder="Пароль">
+  <button type="button" class="password-toggle" onclick="togglePassword('loginPass', this)">Показать</button>
+</div>
+
+<button class="main-btn" onclick="login()">Войти</button>
+
+</div>
+
+<div id="registerBlock" style="display:none;">
+
+<input id="regUser" type="email" placeholder="Email">
+<div class="password-wrapper">
+  <input id="regPass" type="password" placeholder="Пароль минимум 6 символов">
+  <button type="button" class="password-toggle" onclick="togglePassword('regPass', this)">Показать</button>
+</div>
+
+<button class="main-btn" onclick="register()">Создать аккаунт</button>
+
+</div>
+
+<div id="successMessage"></div>
+
+</div>
+</div>
+
+</div>
+  <header>
+    <h1>FinanceFlow</h1>
+    <button id="themeToggle">Сменить тему</button>
+    <button id="logoutBtn">Выйти</button>
+  </header>
+
+
+  <main id="mainSite">
+    <!-- Баланс -->
+    <div class="balance-card" id="balanceCard">
+    
+  <div class="balance-header">
+    <div class="balance-title">Общий баланс</div>
+
+    <div class="currency-wrapper">
+        <select id="currencySelector" class="currency-dropdown">
+            <option value="₽">RUB ₽</option>
+            <option value="$">USD $</option>
+            <option value="€">EUR €</option>
+            <option value="₸">KZT ₸</option>
+        </select>
+    </div>
+</div>
+    <div class="balance-amount" id="totalBalance">
+        0.00 $
+    </div>
+
+    <div class="balance-status" id="balanceStatus">
+        Стабильно
+    </div>
+</div>
+
+    <!-- Транзакции -->
+    <div class="card" id="budgetCard">
+      <h2>Транзакции</h2>
+      <form id="budgetForm">
+        <input type="text" id="desc" placeholder="Описание" required>
+        <input type="number" id="amount" placeholder="Сумма" required>
+        <select id="type">
+          <option value="income">Доход</option>
+          <option value="expense">Расход</option>
+        </select>
+        <button type="submit">Добавить</button>
+      </form>
+      <button id="clearBudget" class="clear-btn">Очистить транзакции</button>
+      <ul id="budgetList"></ul>
+      <canvas id="budgetChart" width="300" height="300"></canvas>
+    </div>
+
+    <!-- Инвестиции -->
+    <div class="card" id="investmentCard">
+      <h2>Инвестиции</h2>
+      <form id="investmentForm">
+        <input type="text" id="iname" placeholder="Название акции" required>
+        <input type="number" id="iamount" placeholder="Количество" required>
+        <input type="number" id="iprice" placeholder="Цена" required>
+        <button type="submit">Добавить</button>
+      </form>
+      <button type="button" id="clearInvestments" class="clear-btn">
+  Очистить инвестиции
+</button>
+      <ul id="investmentList"></ul>
+      <canvas id="investmentChart" width="400" height="400"></canvas>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
