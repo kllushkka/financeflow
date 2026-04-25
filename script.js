@@ -258,8 +258,8 @@ function updateChartsTheme() {
 // 1) Создай проект на https://supabase.com
 // 2) Project Settings -> API
 // 3) Вставь сюда Project URL и anon public key
-const SUPABASE_URL = "ВСТАВЬ_СЮДА_SUPABASE_PROJECT_URL";
-const SUPABASE_ANON_KEY = "ВСТАВЬ_СЮДА_SUPABASE_ANON_PUBLIC_KEY";
+const SUPABASE_URL = "https://hcjxyxmkakcrdqevvxvp.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_CqdGnpa6vktC_C5hPwNHFg_tfFYsyvv";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
